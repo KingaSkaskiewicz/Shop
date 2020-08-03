@@ -1,0 +1,403 @@
+﻿html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+    color: none !important;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.social-icon {
+    padding: 5px 8px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 5px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #000;
+    transition: 0.4s;
+
+    &:hover {
+        background-color: #000;
+        color: #fff;
+        box-shadow: 0px 5px 5px #e4e4e4;
+    }
+}
+
+li a {
+    font-size: 19px;
+}
+
+.nav-icon {
+    color: #5c5c5c;
+    font-size: 30px;
+    margin-right: 5px;
+
+    &:hover {
+        color: #000;
+    }
+}
+
+.form-container {
+    max-width: 400px;
+    padding: 10px;
+    background-color: white;
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.form-container .btn {
+    background-color: #72b275;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 49%;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.form-container .cancel {
+    background-color: #ca4141;
+}
+
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+    color: white;
+    border: none;
+}
+
+.fa-stack[data-count]:after {
+    position: absolute;
+    right: 30%;
+    top: 60%;
+    content: attr(data-count);
+    font-size: 30%;
+    padding: 5px;
+    border-radius: 999px;
+    line-height: .75em;
+    color: #fff;
+    text-align: center;
+    min-width: 1em;
+    font-weight: bold;
+    background: #e60505;
+}
+
+input:focus, input.form-control:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    border: 1px solid #000;
+}
+
+button:focus, button.btn:focus, button:active, button.btn:active {
+    outline: none !important;
+    box-shadow: none;
+    border: 1px solid #000;
+}
+
+.carousel-image-top {
+    width: 100%;
+    height: auto;
+}
+
+
+.container-img-top {
+    position: relative;
+    width: 50%;
+}
+
+.image-top {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.overlay-middle {
+    position: absolute;
+    bottom: 35%;
+    background: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.7);
+    color: #000;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.container-img-top:hover .overlay-middle {
+    opacity: 1;
+}
+
+
+.form-inline {
+    display: block !important;
+}
+
+
+.main-title {
+    color: #2d2d2d;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0.7em 0;
+}
+
+.container-img {
+    padding: 0px 1px;
+    float: left;
+    width: 20%;
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+    .container-img {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 950px) {
+    .container-img {
+        width: 50%;
+    }
+}
+
+.container-img .title {
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.fa-chevron {
+    font-size: x-large;
+    color: #676767;
+    display: inline-block;
+}
+
+.card {
+    box-shadow: 0px 5px 5px #ebebebbd;
+}
+
+.card-img-top {
+    height: 250px;
+}
+
+.btn-carousel {
+    opacity: 0.8;
+    &:hover {
+        opacity: 1;
+        color: #fff;
+    }
+}
+
+.content {
+    position: relative;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+}
+
+.content .content-overlay {
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    height: 99%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay {
+    opacity: 1;
+}
+
+.content-image {
+    width: 100%;
+    height: auto;
+}
+
+.content-details {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+.content-details h3 {
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+}
+
+.content-details p {
+    color: #fff;
+    font-size: 15px;
+}
+
+.newsletter {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.fadeIn-bottom {
+    top: 80%;
+}
+
+.modal-content .row {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.modal-content .col-md-6{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.modal-footer {
+    position: relative;
+    top: 40%;
+}
+
+.link-footer {
+    font-size: 17px;
+    color: #5c5c5c;
+    position: relative;
+    left: -5%;
+    &:hover {
+        color: #000;
+    }
+}
+
+.social-icon-footer {
+    font-size: 35px;
+    margin: 10px;
+    color: #494949;
+
+    &:hover {
+        color: #000;
+    }
+}
+
+.copyrights {
+    color: #575757;
+    position: relative;
+    top: 85%;
+}
+
+.contact {
+    background-color: #fff;
+    color: #575757;
+    margin-bottom: 0;
+}
+
+.map {
+    width: 600px;
+    height: 450px; 
+    frameborder: 0; 
+    border: 0;
+}
+
+.email {
+    color:#000;
+}
+
+.delivery {
+    text-align: center;
+}
+
+.product {
+    width: 100%;
+    height: auto;
+}
+
+.btn-add {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    border: none;
+
+    & :focus, :active, .btn:focus, .btn:active, {
+        outline: none !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+}
+
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.basket-image {
+    width: 30%;
+    height: auto;
+}
+
+.discount-text {
+    font-weight: bold;
+    color: #0cd028;
+}
+
+.discount-text-wrong {
+    font-weight: bold;
+    color: #e60505;
+}
+
+.modal-price {
+    top: 20%;
+    right: 20%;
+    position: relative;
+    text-align: center;
+}
+
