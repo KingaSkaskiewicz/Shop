@@ -1,0 +1,16 @@
+{
+  "name": "YourProjectName",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.6.9",
+    "angular-route": "1.6.9",
+    "jquery": "3.5.1"
+  },
+  "devDependencies": {
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2"
+  }
+}
