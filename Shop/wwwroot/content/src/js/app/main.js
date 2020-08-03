@@ -4,7 +4,7 @@ app.config(function ($routeProvider, $locationProvider) {
         $('.toast').toast('show');
     });
     $routeProvider
-        .when("/", {
+        .when("/Shop", {
             templateUrl: "Shop/main.html"
         })
         .when("/wysylka", {
