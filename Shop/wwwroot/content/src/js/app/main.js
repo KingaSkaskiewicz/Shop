@@ -5,22 +5,22 @@ app.config(function ($routeProvider, $locationProvider) {
     });
     $routeProvider
         .when("/", {
-            templateUrl: "main.html"
+            templateUrl: "Shop/main.html"
         })
         .when("/wysylka", {
-            templateUrl: "wysylka.html"
+            templateUrl: "Shop/wysylka.html"
         })
         .when("/onas", {
-            templateUrl: "onas.html"
+            templateUrl: "Shop/onas.html"
         })
         .when("/produkty", {
-            templateUrl: "produkty.html"
+            templateUrl: "Shop/produkty.html"
         })
         .when("/koszyk", {
-            templateUrl: "koszyk.html"
+            templateUrl: "Shop/koszyk.html"
         })
         .when("/kontakt", {
-            templateUrl: "kontakt.html",
+            templateUrl: "Shop/kontakt.html",
         });
 
     $locationProvider.html5Mode(true);
