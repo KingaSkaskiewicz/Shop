@@ -330,7 +330,7 @@ button:focus, button.btn:focus, button:active, button.btn:active {
 .copyrights {
     color: #575757;
     position: relative;
-    top: 85%;
+    top: 80%;
 }
 
 .contact {
@@ -401,3 +401,21 @@ button:focus, button.btn:focus, button:active, button.btn:active {
     text-align: center;
 }
 
+.btn-floating-right {
+    float: right;
+    position: relative;
+    top: 220px;
+    right: -4%;
+}
+
+.btn-floating-left {
+    float: left;
+    position: relative;
+    top: 220px;
+    left: -4%;
+}
+
+.fa-chevron {
+    font-size: xxx-large !important;
+    color: #898989 !important;
+}
