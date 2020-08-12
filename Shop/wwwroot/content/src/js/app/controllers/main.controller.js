@@ -63,16 +63,16 @@
             description: 'KIELISZKI',
             price: 12.99
         }, {
-                image: "Shop/content/dist/images/morning-819362_1280.jpg",
+            image: "Shop/content/dist/images/morning-819362_1280.jpg",
             alt: 'Mug',
             description: 'KUBKI',
             price: 6.99
         }, {
-                image: "Shop/content/dist/images/kitchen-utensils-4681653_1280.jpg",
+            image: "Shop/content/dist/images/kitchen-utensils-4681653_1280.jpg",
             alt: 'Utensils',
             description: 'NACZYNIA',
             price: 3.99
-            }],
+        }],
 
         [{
             image: "Shop/content/dist/images/pillow-2071096_1280.jpg",
@@ -80,12 +80,12 @@
             description: 'PODUSZKI',
             price: 14.99
         }, {
-                image: "Shop/content/dist/images/light-465350_1280.jpg",
+            image: "Shop/content/dist/images/light-465350_1280.jpg",
             alt: 'Lamp',
             description: 'LAMPKI',
             price: 20.99
         }, {
-                image: "Shop/content/dist/images/linen-542866_1280.jpg",
+            image: "Shop/content/dist/images/linen-542866_1280.jpg",
             alt: 'Linen',
             description: 'POŚCIEL',
             price: 30.99
@@ -98,12 +98,12 @@
             description: 'AKCESORIA',
             price: 5.99
         }, {
-                image: "Shop/content/dist/images/towels-2822910_1280.jpg",
+            image: "Shop/content/dist/images/towels-2822910_1280.jpg",
             alt: 'Towels',
             description: 'RĘCZNIKI',
             price: 20.99
         }, {
-                image: "Shop/content/dist/images/clothes-1834650_1280.jpg",
+            image: "Shop/content/dist/images/clothes-1834650_1280.jpg",
             alt: 'Hangers',
             description: 'WIESZAKI',
             price: 30.99
@@ -124,6 +124,16 @@
         });
 
         $('#myModalPromo').modal('hide');
+    }
+
+
+    $scope.user = {
+        name_surname: '',
+        adres: '',
+        zip_code: '',
+        city: '',
+        email: '',
+        phone: ''
     }
 
 });

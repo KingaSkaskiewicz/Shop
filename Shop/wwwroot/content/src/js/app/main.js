@@ -19,6 +19,9 @@ app.config(function ($routeProvider, $locationProvider) {
         .when("/koszyk", {
             templateUrl: "Shop/koszyk.html"
         })
+        .when("/realizacja", {
+            templateUrl: "Shop/realizacja.html"
+        })
         .when("/kontakt", {
             templateUrl: "Shop/kontakt.html",
         });
