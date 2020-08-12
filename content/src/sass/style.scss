@@ -357,20 +357,36 @@ button:focus, button.btn:focus, button:active, button.btn:active {
 .product {
     width: 100%;
     height: auto;
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .btn-add {
     position: absolute;
     top: 0;
-    right: 0;
-    padding: 5px;
+    right: 15px;
+    padding: 10px;
+    box-shadow: none;
     border: none;
+    outline: none;
+    transition: transform 0.15s ease;
 
-    & :focus, :active, .btn:focus, .btn:active, {
-        outline: none !important;
-        box-shadow: none !important;
-        border: none !important;
+    &:active {
+        transform: scale(0.9);
     }
+}
+
+input:focus, input:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 2px solid #838383 !important;
+}
+
+.btn-add:focus, .btn-add:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 
@@ -418,4 +434,85 @@ button:focus, button.btn:focus, button:active, button.btn:active {
 .fa-chevron {
     font-size: xxx-large !important;
     color: #898989 !important;
+}
+
+
+div.shaking-shopping-basket {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.container-radio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.container-radio:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container-radio input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container-radio input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container-radio .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
 }

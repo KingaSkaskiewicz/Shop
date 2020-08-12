@@ -1,9 +1,9 @@
 ﻿<div class="container" id="products">
     <div class="row">
-        <div class="col-sm-4 p-0" ng-repeat="x in shopItems | filter:searchText">
+        <div class="col-sm-4" ng-repeat="x in shopItems | filter:searchText">
             <a href="#" data-toggle="modal" data-target="#{{x.modal}}">
             <img class="product" ng-src="{{x.image}}" /></a>
-            <button class="bnt btn-success btn-add" ng-click="shoppingBasketService.addItem(x)">+ DO KOSZYKA</button>
+            <button class="btn-secondary btn-add" ng-click="shoppingBasketService.addItem(x)">+ DO KOSZYKA</button>
             <div class="product-info">
                 <h5 ng-bind="x.description"></h5>
                 <p class="price">{{x.price}} zł</p>
@@ -36,7 +36,7 @@
 
                         <div class="modal-price">
                             <h4 class="font-weight-bold">{{x.price}} zł</h4>
-                            <button class="bnt btn-success btn-add" ng-click="shoppingBasketService.addItem(x)">+ DO KOSZYKA</button>
+                            <button class="btn-secondary btn-add" ng-click="shoppingBasketService.addItem(x)">+ DO KOSZYKA</button>
                         </div>
                     </div>
                 </div>
