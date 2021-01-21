@@ -1,0 +1,154 @@
+<div class="container-fluid">
+  <div class="column float-right mt-3">
+    <a class="social-icon"><i class="fab fa-facebook"></i></a>
+    <a class="social-icon"><i class="fab fa-youtube-square"></i></a>
+    <a class="social-icon"><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
+<a routerLink="/" routerLinkActive="active">
+  <div class="container-fluid jumbotron bg-white text-center text-dark" id='top'>
+    <h1><strong>HOME<br />SWEETHOME.PL</strong></h1>
+    <h5>rzeczy które pokochasz ♥️</h5>
+  </div>
+</a>
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light lighten-5 mb-4">
+
+
+  <a class="navbar-brand text-center ml-3 mr-5" routerLink="/" routerLinkActive="active" (click)="scroll()"><h6><strong>HOME<br />SWEETHOME.PL</strong></h6></a>
+
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation"
+          aria-controls="navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/produkty" routerLinkActive="active" style="color: #e60505">WYPRZEDAŻ</a>
+      </li>
+
+      <li ngbDropdown class="d-inline-block">
+        <a class="nav-link" id="dropdownBasic" ngbDropdownToggle>KATEGORIE</a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic">
+          <button class="dropdown-item" ngbDropdownItem routerLink="/produkty">SALON</button>
+          <button class="dropdown-item" ngbDropdownItem routerLink="/produkty">SYPIALNIA</button>
+          <button class="dropdown-item" ngbDropdownItem routerLink="/produkty">KUCHNIA</button>
+          <button class="dropdown-item" ngbDropdownItem routerLink="/produkty">ŁAZIENKA</button>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/wysylka" routerLinkActive="active">WYSYŁKA</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/onas" routerLinkActive="active">O NAS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/kontakt" routerLinkActive="active">KONTAKT</a>
+      </li>
+      <li *ngIf="userService.userProfile.isAutheniticated === true" class="nav-item">
+        <a class="nav-link" href="adminNewsletters">LISTA DANYCH</a>
+      </li>
+
+    </ul>
+    <div [ngClass]="{'shaking-shopping-basket': shoppingBasketService.isBasketShaking}">
+      <span class="fa-stack fa-2x has-badge" style="width: 1.5em !important;" [attr.data-count]="shoppingBasketService.getTotalItemCount()">
+        <a class="nav-icon" routerLink="/koszyk" routerLinkActive="active"><i class="fa fa-shopping-basket"></i></a>
+      </span>
+    </div>
+
+
+    <button *ngIf="userService.userProfile.isAutheniticated === false" class="btn btn-outline-secondary mr-3 dropdown" (click)="formOpened = true"><i class="fa fa-user"></i> ZALOGUJ SIĘ</button>
+    <div class="dropdown-menu" style="left: auto !important; right: 0 !important" id="myForm" [ngStyle]="{ 'display' : formOpened ? 'block' : 'none' }">
+      <form class="form-container sticky-top">
+        <h4>LOGOWANIE</h4>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Wpisz Email" name="email" [(ngModel)]="userEmail" required [ngModelOptions]="{standalone: true}">
+        <span style="color: red" *ngIf="userService.errorMessageEmail === true">NIEPRAWIDŁOWY EMAIL</span>
+
+        <label for="psw"><b>Hasło</b></label>
+        <input type="password" placeholder="Wpisz hasło" name="psw" [(ngModel)]="userPassword" required [ngModelOptions]="{standalone: true}">
+        <span style="color: red" *ngIf="userService.errorMessagePassword === true">NIEPRAWIDŁOWE HASŁO</span>
+
+        <button type="button" class="btn" (click)="loginClick(userEmail, userPassword)">ZALOGUJ</button>
+        <button type="button" class="btn cancel" (click)="formOpened = false">ZAMKNIJ</button>
+      </form>
+    </div>
+
+    <button *ngIf="userService.userProfile.isAutheniticated === true" class="btn btn-outline-secondary mr-3 dropdown" (click)="userService.logout()"><i class="fa fa-user"></i> WYLOGUJ SIĘ</button>
+
+    
+
+  </div>
+
+</nav>
+
+
+<!-- Content goes HERE -->
+<router-outlet></router-outlet>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <div class="row">
+
+    <div class="col-md-4">
+      <h6><strong>ZAMÓWIENIA INTERNETOWE:</strong></h6><br />
+      <p><a href="mailto:kinga.skaskiewicz@gmail.com" class="email"><i class='fas fa-envelope'></i> kinga.skaskiewicz@gmail.com</a></p>
+      <p><i class='fas fa-phone-alt'></i> +48 694718605</p><br />
+      <h6><strong>SKLEP STACJONARNY:</strong></h6><br />
+      <p><i class='fas fa-map-marker-alt'></i> Rynek Główny, Kraków</p>
+    </div>
+
+    <div class="col-md-4">
+      <h6><strong>INFORMACJE:</strong></h6><br />
+      <ul>
+        <li>
+          <a routerLink="/wysylka" routerLinkActive="active" class="link-footer">WYSYŁKA</a>
+        </li>
+        <li>
+          <a routerLink="/onas" routerLinkActive="active" class="link-footer">O NAS</a>
+        </li>
+        <li>
+          <a routerLink="/kontakt" routerLinkActive="active" class="link-footer">KONTAKT</a>
+        </li>
+      </ul>
+      <br />
+      <h6><strong>ZNAJDŹ NAS NA:</strong></h6><br />
+      <a class="social-icon-footer"><i class="fab fa-facebook"></i></a>
+      <a class="social-icon-footer"><i class="fab fa-youtube-square"></i></a>
+      <a class="social-icon-footer"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div class="col-md-4">
+      <h6 class="copyrights">COPYRIGHTS © 2020 KINGA SKASKIEWICZ</h6>
+      <br />
+      <h6 class="copyrights">ALL PHOTOS BY PIXABAY.COM</h6>
+    </div>
+
+  </div>
+</div>
+
+<div class="fixed-bottom">
+
+  <ngb-toast [autohide]="false" class="toast" style="max-width: none; opacity: 0.9;">
+
+      <ng-template ngbToastHeader>
+        <div class="toast-header">
+          <strong class='mr-auto text-dark'>COOKIES <i class='fas fa-cookie-bite'></i></strong>
+        </div>
+      </ng-template>
+
+      <div class="toast-body">
+        Ta strona używa plików cookie, aby zapewnić Ci jak najlepsze wrażenia podczas robienia zakupów. Korzystając z naszych usług, akceptujesz używanie takich plików.
+      </div>
+
+  </ngb-toast>
+
+</div>
+
+

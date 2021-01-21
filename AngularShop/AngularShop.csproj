@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{736FABC3-A896-4A17-ABD4-6D173A3FB35E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AngularShop</RootNamespace>
+    <AssemblyName>AngularShop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app\.gitignore" />
+    <Content Include="app\e2e\protractor.conf.js" />
+    <Content Include="app\karma.conf.js" />
+    <Content Include="app\src\app\components\admin-newsletters\admin-newsletters.component.css" />
+    <Content Include="app\src\app\components\admin-newsletters\admin-newsletters.component.html" />
+    <Content Include="app\src\app\components\app\app.component.css" />
+    <Content Include="app\src\app\components\app\app.component.html" />
+    <Content Include="app\src\app\components\kontakt\kontakt.component.css" />
+    <Content Include="app\src\app\components\kontakt\kontakt.component.html" />
+    <Content Include="app\src\app\components\koszyk\koszyk.component.css" />
+    <Content Include="app\src\app\components\koszyk\koszyk.component.html" />
+    <Content Include="app\src\app\components\main\main.component.css" />
+    <Content Include="app\src\app\components\main\main.component.html" />
+    <Content Include="app\src\app\components\onas\onas.component.css" />
+    <Content Include="app\src\app\components\onas\onas.component.html" />
+    <Content Include="app\src\app\components\produkty\product-details-modal\product-details-modal.component.css" />
+    <Content Include="app\src\app\components\produkty\product-details-modal\product-details-modal.component.html" />
+    <Content Include="app\src\app\components\produkty\produkty.component.css" />
+    <Content Include="app\src\app\components\produkty\produkty.component.html" />
+    <Content Include="app\src\app\components\realizacja\realizacja.component.css" />
+    <Content Include="app\src\app\components\realizacja\realizacja.component.html" />
+    <Content Include="app\src\app\components\wysylka\wysylka.component.css" />
+    <Content Include="app\src\app\components\wysylka\wysylka.component.html" />
+    <Content Include="app\src\assets\1.jpg" />
+    <Content Include="app\src\assets\2.jpg" />
+    <Content Include="app\src\assets\3.jpg" />
+    <Content Include="app\src\assets\4.jpg" />
+    <Content Include="app\src\assets\5.jpg" />
+    <Content Include="app\src\assets\badesalz-1620261_1280.jpg" />
+    <Content Include="app\src\assets\bed-2167288_1280.jpg" />
+    <Content Include="app\src\assets\bedding-3528078_960_720.jpg" />
+    <Content Include="app\src\assets\carol-3890333_960_720.jpg" />
+    <Content Include="app\src\assets\cherry-blossoms-4069596_1280.jpg" />
+    <Content Include="app\src\assets\clothes-1834650_1280.jpg" />
+    <Content Include="app\src\assets\dpd.jpg" />
+    <Content Include="app\src\assets\exclusive-banquet-1812772_1280.jpg" />
+    <Content Include="app\src\assets\flower-951780_960_720.jpg" />
+    <Content Include="app\src\assets\glasses-262382_1280.jpg" />
+    <Content Include="app\src\assets\hygiene-870763_1280.jpg" />
+    <Content Include="app\src\assets\ingredients-498199_1280.jpg" />
+    <Content Include="app\src\assets\interior-3804121_1280.jpg" />
+    <Content Include="app\src\assets\kitchen-utensils-4681653_1280.jpg" />
+    <Content Include="app\src\assets\light-465350_1280.jpg" />
+    <Content Include="app\src\assets\linen-542866_1280.jpg" />
+    <Content Include="app\src\assets\logo_paczkomaty_inpost.jpg" />
+    <Content Include="app\src\assets\morning-819362_1280.jpg" />
+    <Content Include="app\src\assets\party-3655712_1280.jpg" />
+    <Content Include="app\src\assets\pillow-1738023_1280 %281%29.jpg" />
+    <Content Include="app\src\assets\pillow-1890940_1280.jpg" />
+    <Content Include="app\src\assets\pillow-2071096_1280.jpg" />
+    <Content Include="app\src\assets\poczta_polska_2.jpg" />
+    <Content Include="app\src\assets\pots-716579_1280.jpg" />
+    <Content Include="app\src\assets\tea-lights-1742638_1280.jpg" />
+    <Content Include="app\src\assets\towels-2822910_1280.jpg" />
+    <Content Include="app\src\assets\vintage-1149558_1280.jpg" />
+    <Content Include="app\src\favicon.ico" />
+    <Content Include="app\src\index.html" />
+    <Content Include="app\src\styles.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app\.browserslistrc" />
+    <None Include="app\.editorconfig" />
+    <None Include="app\angular.json" />
+    <None Include="app\e2e\tsconfig.json" />
+    <None Include="app\package-lock.json" />
+    <None Include="app\package.json" />
+    <None Include="app\README.md" />
+    <None Include="app\src\assets\.gitkeep" />
+    <None Include="app\tsconfig.app.json" />
+    <None Include="app\tsconfig.json" />
+    <None Include="app\tsconfig.spec.json" />
+    <None Include="app\tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app\e2e\src\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="app\e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="app\src\app\app-routing\app-routing.module.ts" />
+    <TypeScriptCompile Include="app\src\app\components\admin-newsletters\admin-newsletters.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\admin-newsletters\admin-newsletters.component.ts" />
+    <TypeScriptCompile Include="app\src\app\components\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\app\app.component.ts" />
+    <TypeScriptCompile Include="app\src\app\app.module.ts" />
+    <TypeScriptCompile Include="app\src\app\components\kontakt\kontakt.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\kontakt\kontakt.component.ts" />
+    <TypeScriptCompile Include="app\src\app\components\koszyk\koszyk.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\koszyk\koszyk.component.ts" />
+    <TypeScriptCompile Include="app\src\app\components\main\main.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\main\main.component.ts" />
+    <TypeScriptCompile Include="app\src\app\components\onas\onas.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\onas\onas.component.ts" />
+    <TypeScriptCompile Include="app\src\app\components\produkty\product-details-modal\product-details-modal.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\produkty\product-details-modal\product-details-modal.component.ts" />
+    <TypeScriptCompile Include="app\src\app\components\produkty\produkty.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\produkty\produkty.component.ts" />
+    <TypeScriptCompile Include="app\src\app\components\realizacja\realizacja.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\realizacja\realizacja.component.ts" />
+    <TypeScriptCompile Include="app\src\app\components\wysylka\wysylka.component.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\components\wysylka\wysylka.component.ts" />
+    <TypeScriptCompile Include="app\src\app\services\produkty\produkty.service.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\services\produkty\produkty.service.ts" />
+    <TypeScriptCompile Include="app\src\app\services\shopping-basket\shopping-basket.service.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\services\shopping-basket\shopping-basket.service.ts" />
+    <TypeScriptCompile Include="app\src\app\services\user\user.service.spec.ts" />
+    <TypeScriptCompile Include="app\src\app\services\user\user.service.ts" />
+    <TypeScriptCompile Include="app\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="app\src\environments\environment.ts" />
+    <TypeScriptCompile Include="app\src\main.ts" />
+    <TypeScriptCompile Include="app\src\polyfills.ts" />
+    <TypeScriptCompile Include="app\src\test.ts" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

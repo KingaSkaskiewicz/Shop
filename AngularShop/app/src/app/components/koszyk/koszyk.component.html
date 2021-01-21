@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="text-center m-3" *ngIf="shoppingBasketService.ifBasketIsEmpty()">
+    <h4>TWÓJ KOSZYK JEST PUSTY</h4>
+    <h2><i class='far fa-sad-tear'></i></h2>
+  </div>
+  <div class="table-responsive-md">
+    <table class="table table-hover" *ngIf="!shoppingBasketService.ifBasketIsEmpty()">
+      <thead>
+        <tr class="text-center">
+          <th>PRODUKT</th>
+          <th>OPIS</th>
+          <th>CENA</th>
+          <th>ILOŚĆ</th>
+          <th>USUŃ PRODUKT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let basketItem of shoppingBasketService.basketItems" class="text-center">
+          <td><img class="basket-image" [src]="basketItem.image" /></td>
+          <td [innerText]="basketItem.description"></td>
+          <td [innerText]="(basketItem.price * basketItem.quantity).toFixed(2) + ' zł'"></td>
+          <td><input type="number" [innerText]="basketItem.quantity" [(ngModel)]="basketItem.quantity" [ngModelOptions]="{ debounce: 500 }" (ngModelChange)="shoppingBasketService.adjustQuantity(basketItem)"></td>
+          <td><button type="button" class="btn btn-danger" (click)="shoppingBasketService.removeItem(basketItem)">USUŃ</button></td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr class="text-center thead-light">
+          <th></th>
+          <th></th>
+          <th>SUMA</th>
+          <th>ILOŚĆ</th>
+          <th>KOD ZNIŻKOWY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <td></td>
+          <td></td>
+          <td><p class="discount-text" [innerText]="'-' + shoppingBasketService.getDiscountValue() + ' zł'" *ngIf="shoppingBasketService.applyDiscountAppliedMessage !== ''"></p></td>
+          <td></td>
+          <td>
+            <p class="discount-text" [innerText]="shoppingBasketService.applyDiscountAppliedMessage" *ngIf="shoppingBasketService.applyDiscountAppliedMessage !== ''"></p>
+            <p class="discount-text-wrong" [innerText]="shoppingBasketService.applyDiscountErrorMessage" *ngIf="shoppingBasketService.applyDiscountErrorMessage !== ''"></p>
+          </td>
+        </tr>
+        <tr class="text-center">
+          <td></td>
+          <td></td>
+          <td [innerText]="shoppingBasketService.getTotalPrice() + ' zł'"></td>
+          <td [innerText]="shoppingBasketService.getTotalQuantity()"></td>
+          <td><input type="text" [(ngModel)]="shoppingBasketService.userInputDiscountCode"><button type="button" class="btn btn-success" (click)="shoppingBasketService.applyDiscount()">UŻYJ</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="position-relative">
+    <a href="produkty" class="btn btn-lg btn-secondary mt-4 mb-4">KONTYNUUJ ZAKUPY</a>
+
+    <a routerLink="/realizacja" routerLinkActive="active" class="btn btn-lg btn-secondary mt-4 mb-4 float-md-right float-sm-none">REALIZUJ ZAMÓWIENIE</a>
+  </div>
+</div>

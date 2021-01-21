@@ -1,0 +1,25 @@
+<div class="container" id="products">
+  <div class="row text-center">
+    <div class="col-12">
+      <h4>PRODUKTY:</h4>
+    </div>
+  </div>
+  <hr />
+  <div class="form-inline text-center">
+    <input class="form-control" type="text" name="Search" [(ngModel)]="searchText" autocomplete="off" placeholder="Szukaj produktów...">
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let x of getAvailableProducts()">
+      <a (click)="open(x)">
+        <img class="product" [src]="x.image" />
+      </a>
+      <button class="btn-secondary btn-add" (click)="shoppingBasketService.addItem(x)">+ DO KOSZYKA</button>
+      <div class="product-info" (click)="open(x)">
+        <h5 [innerText]="x.description"></h5>
+        <p class="price">{{x.price}} zł</p>
+      </div>
+    </div>
+  </div>
+</div>
+

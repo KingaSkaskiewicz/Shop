@@ -6,3 +6,5 @@
 /Shop/node_modules
 /Shop/obj
 /.vs
+/AngularShop/app/node_modules
+/AngularShop/obj/Debug

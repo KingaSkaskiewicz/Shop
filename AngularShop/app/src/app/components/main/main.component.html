@@ -1,0 +1,405 @@
+<div class="container">
+  <div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a routerLink="/produkty" routerLinkActive="active">
+          <img src="assets/pots-716579_1280.jpg" alt="pots" class="carousel-image-top">
+          <!--Obraz Milada Vigerova z Pixabay -->
+          <div class="carousel-caption">
+            <h3>DONICZKI</h3>
+            <p>Udekoruj modnie swój parapet</p>
+          </div>
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a routerLink="/produkty" routerLinkActive="active">
+            <img src="assets/bed-2167288_1280.jpg" alt="bed linen" class="carousel-image-top">
+            <!--Obraz ErikaWittlieb z Pixabay -->
+            <div class="carousel-caption">
+              <h3>POŚCIEL</h3>
+              <p>Znajdź swój ideał do sypialni</p>
+            </div>
+          </a>
+      </div>
+      <div class="carousel-item">
+        <a routerLink="/produkty" routerLinkActive="active">
+          <img src="assets/party-3655712_1280.jpg" alt="glass" class="carousel-image-top">
+          <!--Obraz Pitsch z Pixabay  -->
+          <div class="carousel-caption">
+            <h3>ZASTAWA STOŁOWA</h3>
+            <p>Szkło i porcelana na każdą okazję</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4 container-img-top">
+      <a routerLink="/produkty" routerLinkActive="active">
+        <img src="assets/ingredients-498199_1280.jpg" alt="kitchen" class="image-top">
+        <!--Obraz Free-Photos z Pixabay -->
+        <div class="overlay-middle">KUCHNIA</div>
+      </a>
+    </div>
+    <div class="col-sm-4 container-img-top">
+      <a routerLink="/produkty" routerLinkActive="active">
+        <img src="assets/pillow-1890940_1280.jpg" alt="bedroom" class="image-top">
+        <!--Obraz 영훈 박 z Pixabay-->
+        <div class="overlay-middle">SYPIALNIA</div>
+      </a>
+    </div>
+    <div class="col-sm-4 container-img-top">
+      <a routerLink="/produkty" routerLinkActive="active">
+        <img src="assets/hygiene-870763_1280.jpg" alt="bathroom" class="image-top">
+        <!--Obraz Steve Buissinne z Pixabay-->
+        <div class="overlay-middle">ŁAZIENKA</div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<div class="container mt-5 text-center">
+  <h3>NASZA NAJNOWSZA KOLEKCJA</h3>
+  <p>sprawdź ją</p>
+
+  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+    <a class="btn-floating-left" href="#multi-item-example"  data-slide="prev"><i class="fa fa-chevron fa-chevron-left"></i></a>
+    <a class="btn-floating-right" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron fa-chevron-right"></i></a>
+
+    <ol class="carousel-indicators">
+      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+      <li data-target="#multi-item-example" data-slide-to="1"></li>
+      <li data-target="#multi-item-example" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+
+
+      <div class="carousel-item" *ngFor="let productSlideArray of productSlides; let i = index" [ngClass]="{ 'active' : i === 0 }" >
+
+        <div class="row">
+
+          <div class="col-md-4" *ngFor="let productTile of productSlideArray">
+            <div class="card mb-2">
+              <img class="card-img-top" [src]="productTile.image"
+                   alt="{{productTile.alt}}">
+              <div class="card-body">
+                <h4 class="card-title" [innerText]="productTile.description"></h4>
+                <p class="card-text">
+                  {{productTile.price}} zł
+                </p>
+                <button class="btn btn-secondary btn-carousel" (click)="shoppingBasketService.addItem(productTile)">DO KOSZYKA</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+  <div *ngIf="userService.userProfile.isNewsletterSigned === false" class="container text-center newsletter">
+    <h3>ZAPISZ SIĘ DO NASZEGO NEWSLETTTERA</h3>
+    <p>Chcesz otrzymywać nowości? Zostaw swój adres email</p>
+
+    <form class="form-inline">
+      <input type="email" class="form-control" id="email" placeholder="Wpisz swój email" name="email" style="width: 400px;" #email="ngModel" [(ngModel)]="newNewsletterEmail" [ngModelOptions]="{standalone: true}">
+      <span *ngIf="email.touched && email.invalid" style="color:red">NIEPRAWIDŁOWY ADRES EMAIL</span>
+      <button type="button" class="btn btn-secondary" (click)="email.valid && userService.subscribeToNewsletter(newNewsletterEmail)">DODAJ</button>
+    </form>
+  </div>
+
+  <div *ngIf="userService.userProfile.isNewsletterSigned === true" class="container text-center newsletter">
+    <h3>DZIĘKUJEMY ZA ZAPISANIE SIĘ DO NEWSLETTERA</h3>
+    <p>Jeżeli chcesz się wypisać </p>
+    <span (click)="userService.unsubscribeFromNewsletter()">KLIKNIJ TUTAJ</span>
+
+  </div>
+
+
+  <div class="container-fluid mt-5">
+    <div class="row">
+
+      <div class="column container-img">
+        <div class="content">
+          <a href="#" data-toggle="modal" data-target="#myModal1">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="assets/1.jpg" alt="Living room">
+            <!--Obraz Varol Maksutoğlu z Pixabay -->
+            <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">Nasz piękny salon 🥰 </h3>
+              <pre><p class="content-text"><i class='fas fa-heart'></i> 3    <i class='fas fa-comment'></i> 2</p></pre>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal1">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col-md-6">
+                <img class="content-image" src="assets/1.jpg" alt="Living room">
+              </div>
+              <div class="col-md-6">
+                <div class="modal-header">
+                  <h5 class="modal-title"><strong>HOME<br />SWEETHOME.PL</strong></h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+
+                <div class="modal-body">
+                  <h6 class="content-title">Nasz piękny salon 🥰 industrialny i nowoczesny styl wyczarowany 💡 za pomocą naszych akcesoriów i dodatków 🎁 #naszdom #simple #homesweethome</h6>
+                  <br />
+                  <br />
+                  <pre><h6 class="content-text"> <i class='far fa-heart'></i> 3      <i class='far fa-comment'></i> 2</h6></pre>
+                </div>
+
+
+                <div class="modal-footer">
+                  <a href="#"><p>Zobacz na instagramie</p></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column container-img">
+        <div class="content">
+          <a href="#" data-toggle="modal" data-target="#myModal2">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="assets/2.jpg" alt="Sofa">
+            <!--Obraz Anrita1705 z Pixabay -->
+            <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">Praca zdalna 💻 </h3>
+              <pre><p class="content-text"><i class='fas fa-heart'></i> 5    <i class='fas fa-comment'></i> 4</p></pre>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal2">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col-md-6">
+                <img class="content-image" src="assets/2.jpg" alt="Sofa">
+              </div>
+              <div class="col-md-6">
+                <div class="modal-header">
+                  <h5 class="modal-title"><strong>HOME<br />SWEETHOME.PL</strong></h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+
+                <div class="modal-body">
+                  <h6 class="content-title">Praca zdalna 💻 industrialny i nowoczesny styl wyczarowany 💡 za pomocą naszych akcesoriów i dodatków 🎁 #naszdom #simple #homesweethome</h6>
+                  <br />
+                  <br />
+                  <pre><h6 class="content-text"> <i class='far fa-heart'></i> 5      <i class='far fa-comment'></i> 4</h6></pre>
+                </div>
+
+
+                <div class="modal-footer">
+                  <a href="#"><p>Zobacz na instagramie</p></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column container-img">
+        <div class="content">
+          <a href="#" data-toggle="modal" data-target="#myModal3">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="assets/3.jpg" alt="Window">
+            <!--Obraz Denise Husted z Pixabay -->
+            <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">Parapet pełen sukulentów 🌵 </h3>
+              <pre><p class="content-text"><i class='fas fa-heart'></i> 1    <i class='fas fa-comment'></i> 3</p></pre>
+            </div>
+          </a>
+        </div>
+      </div>
+
+
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal3">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col-md-6">
+                <img class="content-image" src="assets/3.jpg" alt="Window">
+              </div>
+              <div class="col-md-6">
+                <div class="modal-header">
+                  <h5 class="modal-title"><strong>HOME<br />SWEETHOME.PL</strong></h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+
+                <div class="modal-body">
+                  <h6 class="content-title">Parapet pełen sukulentów 🌵 industrialny i nowoczesny styl wyczarowany 💡 za pomocą naszych akcesoriów i dodatków 🎁 #naszdom #simple #homesweethome</h6>
+                  <br />
+                  <br />
+                  <pre><h6 class="content-text"> <i class='far fa-heart'></i> 1      <i class='far fa-comment'></i> 3</h6></pre>
+                </div>
+
+
+                <div class="modal-footer">
+                  <a href="#"><p>Zobacz na instagramie</p></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column container-img">
+        <div class="content">
+          <a href="#" data-toggle="modal" data-target="#myModal4">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="assets/4.jpg" alt="Bathroom">
+            <!--Obraz DarthZuzanka z Pixabay -->
+            <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">Miejsce pełne relaksu 🛀 </h3>
+              <pre><p class="content-text"><i class='fas fa-heart'></i> 3    <i class='fas fa-comment'></i> 2</p></pre>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal4">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col-md-6">
+                <img class="content-image" src="assets/4.jpg" alt="Bathroom">
+              </div>
+              <div class="col-md-6">
+                <div class="modal-header">
+                  <h5 class="modal-title"><strong>HOME<br />SWEETHOME.PL</strong></h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+
+                <div class="modal-body">
+                  <h6 class="content-title">Miejsce pełne relaksu 🛀  industrialny i nowoczesny styl wyczarowany 💡 za pomocą naszych akcesoriów i dodatków 🎁 #naszdom #simple #homesweethome</h6>
+                  <br />
+                  <br />
+                  <pre><h6 class="content-text"> <i class='far fa-heart'></i> 3      <i class='far fa-comment'></i> 2</h6></pre>
+                </div>
+
+
+                <div class="modal-footer">
+                  <a href="#"><p>Zobacz na instagramie</p></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column container-img">
+        <div class="content">
+          <a href="#" data-toggle="modal" data-target="#myModal5">
+            <div class="content-overlay"></div>
+            <img class="content-image" src="assets/5.jpg" alt="Garden">
+            <!--Obraz congerdesign z Pixabay -->
+            <div class="content-details fadeIn-bottom">
+              <h3 class="content-title">Zaczarowany ogród 🌻 </h3>
+              <pre><p class="content-text"><i class='fas fa-heart'></i> 6    <i class='fas fa-comment'></i> 8</p></pre>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal5">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content">
+            <div class="row">
+              <div class="col-md-6">
+                <img class="content-image" src="assets/5.jpg" alt="Garden">
+              </div>
+              <div class="col-md-6">
+                <div class="modal-header">
+                  <h5 class="modal-title"><strong>HOME<br />SWEETHOME.PL</strong></h5>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+
+                <div class="modal-body">
+                  <h6 class="content-title">Zaczarowany ogród 🌻 industrialny i nowoczesny styl wyczarowany 💡 za pomocą naszych akcesoriów i dodatków 🎁 #naszdom #simple #homesweethome</h6>
+                  <br />
+                  <br />
+                  <pre><h6 class="content-text"> <i class='far fa-heart'></i> 6      <i class='far fa-comment'></i> 8</h6></pre>
+                </div>
+
+
+                <div class="modal-footer">
+                  <a href="#"><p>Zobacz na instagramie</p></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <ng-template #content let-modal  class="modal fade">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="modal-image" [ngStyle]="{backgroundImage:'url(assets/interior-3804121_1280.jpg)'}"></div>
+              <!--Obraz tpavati z Pixabay-->
+            </div>
+            <div class="col-md-6">
+
+              <a class="close" (click)="modal.close()">&times;</a>
+
+              <div class="text-center m-5">
+                <h5>
+                  TERAZ NA CAŁY ASORTYMENT ZNIŻKA -10% Z KODEM <strong>LATO10</strong> NIE PRZEGAP, KOD JEST WAŻNY TYLKO DO 22.09.2020
+                </h5>
+                <a (click)="onModalButtonClick()" class="btn btn-lg btn-outline-secondary mt-5">KUPUJ TERAZ</a>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+
